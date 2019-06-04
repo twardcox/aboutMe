@@ -83,3 +83,38 @@ if (dancer.toLowerCase() === 'yes' || dancer.toLowerCase() === 'y') {
 } else {
   alert(ruleBreaker);
 }
+
+var hikeResponse = document.createElement('p');
+hikeResponse.innerHTML =
+  'Have I ever hiked the Pacific Crest Trail? Of course ' +
+  userName +
+  ' I haven\'t. Where are you getting your information?';
+document.getElementById('myList').appendChild(hikeResponse);
+
+var rockStarResponse = document.createElement('p');
+rockStarResponse.innerHTML =
+  'Have I ever hung out regularly with a rock star? Yes I have ' +
+  userName +
+  ' . And he is cooler than you!';
+document.getElementById('myList').appendChild(rockStarResponse);
+
+var singerResponse = document.createElement('p');
+singerResponse.innerHTML =
+  'Have I ever been fired from singing in my own band? ' +
+  userName +
+  ', I hang out with rock stars... of course they\'ve fired me!';
+document.getElementById('myList').appendChild(singerResponse);
+
+var germanyResponse = document.createElement('p');
+germanyResponse.innerHTML =
+  'Have I ever spent a Christmas in Germany? Sadly ' +
+  userName +
+  ', I have not but it is on my bucket list and may be happening sooner than you would think.';
+document.getElementById('myList').appendChild(germanyResponse);
+
+var dancerResponse = document.createElement('p');
+dancerResponse.innerHTML =
+  'Have I ever performed as a Russian folk dancer? Stop laughing ' +
+  userName +
+  ', in 1996 at the Memorial Collosium in Portland, OR.';
+document.getElementById('myList').appendChild(dancerResponse);
