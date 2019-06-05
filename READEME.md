@@ -1,18 +1,18 @@
 # Project Title
 
-One Paragraph of project description goes here
+This project is a profile site detailing how great I am. It provides an insight to how I got to where I am and little known fun facts about me.
+
+It is a work in progress so mind the dust and falling debris.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To run this program simply open it in your favorite browser.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+There are no prerequisite programs at this time.
 
-```
-Give examples
-```
+BUT KEEP CHECKING BECAUSE I MAY SLIP SOMETHING IN ON YOU.
 
 ### Installing
 

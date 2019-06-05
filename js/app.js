@@ -1,8 +1,11 @@
 /* eslint-disable no-console */
 'use strict';
 
+var guessCount = 0;
+var guessCorrectCount = 0;
+
 alert(
-  ' The following is a series of questions that I will ask you to answer about me. You are allowed to answer Yes or No only and you do not get to ask any questions back. You are quessing whether or not I have done what I am claiming.'
+  ' The following is a series of questions that I will ask you to answer about me. You are allowed to answer Yes or No only and you do not get to ask any questions back. You are guessing whether or not I have done what I am claiming.'
 );
 
 var userName = prompt(
@@ -11,53 +14,63 @@ var userName = prompt(
 
 var ruleBreaker =
   userName +
-  'You have a tough time following rules don\'t you? You now don\'t get this piece of information. In the future please limit your answers to Yes or No!';
+  ' You have a tough time following rules don\'t you? You now don\'t get this piece of information. In the future please limit your answers to Yes or No!';
 
-var exparte = userName + ' I hate you we aren\'t friends anymore';
+var exParte = userName + ' I hate you we aren\'t friends anymore';
 
 var Hiking = prompt('Have I ever: Hiked the Pacific Crest Trail?');
 console.log('hiking: ' + Hiking.toLowerCase());
+guessCount++;
 
 if (Hiking.toLowerCase() === 'yes' || Hiking.toLowerCase() === 'y') {
+  alert(exParte);
+} else if (Hiking.toLowerCase() === 'no' || Hiking.toLowerCase() === 'n') {
+  guessCorrectCount++;
   alert(
     'Of course ' +
       userName +
       ' I havn\'t. Where are you getting your information?'
   );
-} else if (Hiking.toLowerCase() === 'no' || Hiking.toLowerCase() === 'n') {
-  alert(exparte);
 } else {
   alert(ruleBreaker);
 }
 
 var rockStar = prompt('Have I ever: Hung out regularly with a rock star?');
+
 console.log('rockStar: ' + rockStar.toLowerCase());
+guessCount++;
 
 if (rockStar.toLowerCase() === 'yes' || rockStar.toLowerCase() === 'y') {
+  guessCorrectCount++;
   alert('You are correct ' + userName + ' . And he is cooler than you!');
 } else if (rockStar.toLowerCase() === 'no' || rockStar.toLowerCase() === 'n') {
-  alert(exparte);
+  alert(exParte);
 } else {
   alert(ruleBreaker);
 }
 
 var singer = prompt('Have I ever: Been fired from singing in my own band?');
+
 console.log('singer: ' + singer.toLowerCase());
+guessCount++;
 
 if (singer.toLowerCase() === 'yes' || singer.toLowerCase() === 'y') {
+  guessCorrectCount++;
   alert(
-    'You are correct' +
+    'You are correct ' +
       userName +
       ' . I hang out with rock stars... of course they\'ve fired me!'
   );
 } else if (singer.toLowerCase() === 'no' || singer.toLowerCase() === 'n') {
-  alert(exparte);
+  alert(exParte);
 } else {
   alert(ruleBreaker);
 }
 
 var germany = prompt('Have I ever: Spent Christmas in Germany?');
+
 console.log('germany: ' + germany.toLowerCase());
+guessCount++;
 
 if (germany.toLowerCase() === 'yes' || germany.toLowerCase() === 'y') {
   alert(
@@ -66,23 +79,136 @@ if (germany.toLowerCase() === 'yes' || germany.toLowerCase() === 'y') {
       ' . It is on my bucket list and may be happening sooner than you would think.'
   );
 } else if (germany.toLowerCase() === 'no' || germany.toLowerCase() === 'n') {
+  guessCorrectCount++;
   alert('Of course I haven\'t.');
 } else {
   alert(ruleBreaker);
 }
 
 var dancer = prompt('Have I ever: Performed as a Russian folk dancer?');
+
 console.log('dancer: ' + dancer.toLowerCase());
+guessCount++;
 
 if (dancer.toLowerCase() === 'yes' || dancer.toLowerCase() === 'y') {
+  guessCorrectCount++;
   alert(
-    'You are correct ' + userName + ' , 1996 Memorial Collosium, Portland, OR.'
+    'You are correct ' + userName + ' , 1996 Memorial Coliseum, Portland, OR.'
   );
 } else if (dancer.toLowerCase() === 'no' || dancer.toLowerCase() === 'n') {
-  alert(exparte);
+  alert(exParte);
 } else {
   alert(ruleBreaker);
 }
+
+// number guessing game
+var myNumber = Math.floor(Math.random() * (30 - 1 + 1)) + 1;
+var guess;
+
+for (var i = 4; i >= 0; i--) {
+  console.log('i: ', i);
+
+  if (i === 0) {
+    alert(userName + ' you are the weakest link... GOODBYE!');
+    break;
+  }
+  guessCount++;
+  guess = prompt(
+    userName +
+      ' you have ' +
+      i +
+      ' chances to guess the number I\'m thinking of between 1 and 30.'
+  );
+  if (Number(guess) === myNumber) {
+    guessCorrectCount++;
+    alert(
+      'HOW DID YOU KNOW... ' + userName.toUpperCase() + ' YOUR A SORCERER!!'
+    );
+    i = 0;
+  } else if (guess > myNumber) {
+    alert(
+      'Wrong ' +
+        userName +
+        '!! Lower. You have only ' +
+        (i - 1) +
+        ' guesses remaining.'
+    );
+  } else if (guess < myNumber) {
+    alert(
+      'Wrong ' +
+        userName +
+        '!! Higher. You have only ' +
+        (i - 1) +
+        ' guesses remaining.'
+    );
+  }
+}
+
+var favActivities = [
+  'riding motorcycles',
+  'cuddling with my girlfriend',
+  'writing code',
+  'kayaking',
+  'hiking',
+  'weight training'
+];
+
+var correctGuesses = [];
+var correctCount = 0;
+
+for (var j = 6; j >= 0; j--) {
+  console.log('j: ', j);
+
+  if (j === 0) {
+    alert(
+      userName +
+        ' you are out of guesses. You got ' +
+        correctCount +
+        ' out of six. The remaining answers are: ' +
+        favActivities
+    );
+    break;
+  }
+  guessCount++;
+  guess = prompt(
+    userName +
+      ' you have ' +
+      j +
+      ' chances to guess as many of my leisure activities as you can.'
+  );
+
+  if (favActivities.includes(guess)) {
+    guessCorrectCount++;
+    correctCount++;
+    favActivities.splice([favActivities.indexOf(guess)], 1);
+    console.log('favActivities.indexOf(guess): ', favActivities.indexOf(guess));
+    console.log('favActivities: ', favActivities);
+    correctGuesses.push(guess);
+    console.log('correctGuesses: ', correctGuesses);
+
+    alert(
+      userName +
+        ' you are correct. You have ' +
+        correctCount +
+        ' out of six and ' +
+        (j - 1) +
+        ' guesses remaining'
+    );
+  } else {
+    alert('Wrong ' + userName + '  Try another.');
+  }
+}
+
+var responseRation = document.createElement('p');
+responseRation.innerHTML =
+  userName +
+  ' You guessed ' +
+  guessCorrectCount +
+  ' correct out of ' +
+  guessCount +
+  ' guesses. You know nothing ' +
+  userName;
+document.getElementById('myList').appendChild(responseRation);
 
 var hikeResponse = document.createElement('p');
 hikeResponse.innerHTML =
@@ -116,5 +242,14 @@ var dancerResponse = document.createElement('p');
 dancerResponse.innerHTML =
   'Have I ever performed as a Russian folk dancer? Stop laughing ' +
   userName +
-  ', in 1996 at the Memorial Collosium in Portland, OR.';
+  ', in 1996 at the Memorial Coliseum in Portland, OR.';
 document.getElementById('myList').appendChild(dancerResponse);
+
+var secretNumber = document.createElement('p');
+secretNumber.innerHTML = 'The secret number was ' + myNumber;
+document.getElementById('myList').appendChild(secretNumber);
+
+var favActs = document.createElement('p');
+favActs.innerHTML =
+  'My favorite activities are ' + favActivities + ' ' + correctGuesses;
+document.getElementById('myList').appendChild(favActs);
