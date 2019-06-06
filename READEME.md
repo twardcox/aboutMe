@@ -4,6 +4,8 @@ This project is a profile site detailing how great I am. It provides an insight 
 
 It is a work in progress so mind the dust and falling debris.
 
+Functionized app2.js
+
 ## Getting Started
 
 To run this program simply open it in your favorite browser.
@@ -85,3 +87,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
+- Pair programming
+  Driver: Jane Hur
+  Navigator: Travis Cox
+
