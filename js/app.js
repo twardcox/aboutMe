@@ -113,13 +113,15 @@ for (var i = 4; i >= 0; i--) {
     break;
   }
   guessCount++;
-  guess = prompt(
-    userName +
-      ' you have ' +
-      i +
-      ' chances to guess the number I\'m thinking of between 1 and 30.'
+  guess = parseInt(
+    prompt(
+      userName +
+        ' you have ' +
+        i +
+        ' chances to guess the number I\'m thinking of between 1 and 30.'
+    )
   );
-  if (Number(guess) === myNumber) {
+  if (guess === myNumber) {
     guessCorrectCount++;
     alert(
       'HOW DID YOU KNOW... ' + userName.toUpperCase() + ' YOUR A SORCERER!!'
