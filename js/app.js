@@ -24,11 +24,11 @@ var validateInput = function(input) {
 };
 
 var askQuestion = function(question, correct, incorrect, badInput) {
-  for (var k = 0, l = 0; k < question.length; k += 2, l++) {
-    var questionPrompt = prompt(question[k]).toLowerCase();
-    var questAnswer = question[k + 1];
+  for (var k = 0; k < correct.length; k++) {
+    var questionPrompt = prompt(question[k * 2]).toLowerCase();
+    var questAnswer = question[k * 2 + 1];
 
-    console.log('questionPrompt: ', question[k]);
+    console.log('questionPrompt: ', question[k * 2]);
     console.log('questAnswer: ', questAnswer);
     console.log('correct: ', correct[k]);
 
@@ -37,7 +37,7 @@ var askQuestion = function(question, correct, incorrect, badInput) {
     // validate input
     while (validateInput(questionPrompt) === false) {
       alert(badInput);
-      questionPrompt = prompt(question[k]).toLowerCase();
+      questionPrompt = prompt(question[k * 2]).toLowerCase();
     }
 
     // if input incorrect
@@ -47,7 +47,7 @@ var askQuestion = function(question, correct, incorrect, badInput) {
 
       // if input correct
     } else if (questionPrompt[0] === questAnswer) {
-      alert(correct[l]);
+      alert(correct[k]);
     }
   }
 };
